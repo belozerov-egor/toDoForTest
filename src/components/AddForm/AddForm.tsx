@@ -4,6 +4,7 @@ import {Dispatch} from "redux";
 import {useDispatch} from "react-redux";
 import {addTask} from "../../store/todolist-reducer";
 import style from "./AddForm.module.scss"
+import { Button } from '../universal/Button';
 
 export const AddForm = () => {
     const dispatch: Dispatch = useDispatch()
@@ -13,22 +14,27 @@ export const AddForm = () => {
       setText(e.currentTarget.value)
     }
 
+    // добавление таски + отчистка строки
     const addTaskHandler = ()=> {
         dispatch(addTask(text))
         setText("")
     }
+    // добавление при нажажитии на Enter
     const onKeyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        // проверка на пустой инпут
         if(text.trim().length !== 0){
             if (e.key === 'Enter') {
                 addTaskHandler();
             }
         }
-      
     }
+
+    const disabledHandler = text.trim().length === 0
+    
 
     return (
         <div className={style.addForm}>
-            <button disabled={text.trim().length === 0} onClick={addTaskHandler}><img src={arrow} alt="arrow"/></button>
+            <Button disabled={disabledHandler} callback={addTaskHandler}><img src={arrow} alt="arrow"/></Button>
             <input
                 onChange={onChangeHandler}
                 value={text}

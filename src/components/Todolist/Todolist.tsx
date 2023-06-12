@@ -7,6 +7,8 @@ import { TasksBottomBlock } from "../TasksBottomBlock/TasksBottomBlock";
 
 
 export const Todolist = () => {
+
+    // получение тудулиста
     const todos = useAppSelector(TodolistSelector);
     
     return (
