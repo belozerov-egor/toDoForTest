@@ -1,0 +1,28 @@
+.addForm {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+  border-bottom: 1px solid lightgray;
+}
+.addForm button {
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.addForm button:hover {
+  border-color: lightblue;
+}
+.addForm input {
+  width: 100%;
+  height: 60px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+.addForm input::placeholder {
+  font-style: italic;
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=AddForm.module.css.map */
